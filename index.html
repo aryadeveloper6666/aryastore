@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erich Store | Murah Dan Terpercaya</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="preloader">
+        <div class="loader-text">Memuat...</div>
+        <div class="loader-bar"></div>
+    </div>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">Erich<span class="logo-dot">Store</span></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Beranda</a></li>
+                    <li><a href="#featured" class="nav-link">Unggulan</a></li>
+                    <li><a href="#promo" class="nav-link">Promo</a></li>
+                    <li><a href="#all-products" class="nav-link">Semua Produk</a></li>
+                    <li><a href="portfolio.html" class="nav-link">Portofolio</a></li>
+                    <li>
+                    <li><a href="testimonials.html" class="nav-link">Testimoni</a></li>
+                        <a href="#" id="view-cart-btn" class="nav-link cart-icon-link">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-item-count-badge">0</span>
+                        </a>
+                    </li>
+                    <li><a href="payment.html" class="nav-link btn-nav">Bayar Langsung</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon-container-mobile">
+                <a href="#" id="view-cart-btn-mobile" class="cart-icon-link-mobile">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-item-count-badge-mobile">0</span>
+                </a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <h1 class="animate-on-scroll" data-animation="fadeInUp">Selamat Datang di Masa Depan Belanja</h1>
+                <p class="animate-on-scroll" data-animation="fadeInUp" data-delay="0.3s">Temukan produk dan layanan inovatif dengan desain menawan.</p>
+                <a href="#featured" class="btn btn-primary animate-on-scroll" data-animation="fadeInUp" data-delay="0.6s">Lihat Koleksi</a>
+            </div>
+        </section>
+
+        <section id="featured" class="product-section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll" data-animation="fadeIn">Paling Banyak Dibeli</h2>
+                <div class="product-grid" id="most-bought-products">
+                    </div>
+            </div>
+        </section>
+
+        <section id="popular" class="product-section bg-gradient">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll" data-animation="fadeIn">Produk Populer</h2>
+                <div class="product-grid" id="popular-products">
+                    </div>
+            </div>
+        </section>
+
+        <section id="promo" class="product-section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll" data-animation="fadeIn">Spesial Promo!</h2>
+                <div class="product-grid" id="promo-products">
+                    </div>
+            </div>
+        </section>
+
+        <section id="all-products" class="product-section bg-dark-transparent">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll" data-animation="fadeIn">Semua Produk & Layanan Kami</h2>
+                <div class="filter-bar">
+                    <input type="text" id="search-product" placeholder="Cari produk atau layanan...">
+                    <select id="sort-product">
+                        <option value="default">Urutkan...</option>
+                        <option value="price-asc">Harga Termurah</option>
+                        <option value="price-desc">Harga Termahal</option>
+                        <option value="name-asc">Nama A-Z</option>
+                        <option value="name-desc">Nama Z-A</option>
+                    </select>
+                </div>
+                <div class="product-grid" id="all-products-grid">
+                    </div>
+                 <div class="pagination">
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>Tentang Kami</h3>
+                    <p>Kami menyediakan produk dan layanan inovatif dengan kualitas terbaik dan termurah.</p>
+                </div>
+                <div class="footer-section links">
+                    <h3>Tautan Cepat</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="portfolio.html">Portofolio Kami</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Hubungi Kami</h3>
+                    <p><i class="fas fa-envelope"></i> vladimirkevinrusia@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +62 812 7401 6808</p>
+                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/6287743690976" target="_blank" rel="noopener noreferrer">Chat WhatsApp</a></p> </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; <span id="current-year"></span> Erich Store. Seluruh Hak Cipta Dilindungi.
+            </div>
+        </div>
+    </footer>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Keranjang Belanja Anda</h2>
+                <span class="close-cart-modal-btn">&times;</span>
+            </div>
+            <div class="modal-body" id="cart-summary-container">
+                <p class="empty-cart-message">Keranjang Anda masih kosong.</p>
+            </div>
+            <div class="modal-footer" id="cart-modal-footer-actions">
+                </div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification">Pesan Notifikasi</div>
+
+    <script src="js/products.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimoni Pelanggan - NamaToko</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="testimonials-page-body"> <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">NamaToko<span class="logo-dot">.</span></a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Beranda</a></li>
+                    <li><a href="index.html#all-products" class="nav-link">Produk</a></li>
+                    <li><a href="portfolio.html" class="nav-link">Portofolio</a></li>
+                    <li><a href="testimonials.html" class="nav-link active">Testimoni</a></li>
+                    <li>
+                        <a href="#" id="view-cart-btn-testimonials" class="nav-link cart-icon-link"> <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-item-count-badge">0</span>
+                        </a>
+                    </li>
+                    <li><a href="payment.html" class="nav-link btn-nav">Bayar</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon-container-mobile">
+                 <a href="#" id="view-cart-btn-mobile-testimonials" class="cart-icon-link-mobile">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-item-count-badge-mobile">0</span>
+                </a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="testimonials-page-main">
+        <section class="portfolio-hero testimonials-hero-custom"> <div class="portfolio-hero-overlay testimonials-overlay-custom"></div>
+            <div class="container">
+                <h1 class="animate-on-scroll" data-animation="fadeInDown">Apa Kata Mereka Tentang Kami</h1>
+                <p class="animate-on-scroll" data-animation="fadeInUp" data-delay="0.3s">Kepuasan pelanggan adalah prioritas utama kami. Lihat pengalaman mereka!</p>
+            </div>
+        </section>
+
+        <section class="testimonials-collection-page">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll" data-animation="fadeIn">Kumpulan Testimoni</h2>
+                <div class="testimonial-grid" id="testimonial-grid-container">
+                    <div class="testimonial-card-page animate-on-scroll" data-animation="fadeInUp">
+                        <div class="testimonial-card-page-image">
+                            <img src="images/testimonials/default-avatar.png" alt="Nama Pengguna">
+                        </div>
+                        <div class="testimonial-card-page-content">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="testimonial-text">"Ini adalah contoh testimoni fallback jika JavaScript gagal memuat atau data tidak tersedia. Layanan sangat memuaskan!"</p>
+                            <h4 class="testimonial-author">Nama Pengguna</h4>
+                            <p class="testimonial-company">Perusahaan Contoh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                 <div class="footer-section about">
+                    <h3>NamaToko.</h3>
+                    <p>Solusi inovatif untuk kebutuhan digital dan teknologi Anda.</p>
+                </div>
+                <div class="footer-section links">
+                    <h3>Navigasi</h3>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="index.html#all-products">Produk</a></li>
+                        <li><a href="portfolio.html">Portofolio</a></li>
+                        <li><a href="payment.html">Pembayaran</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-section contact">
+                    <h3>Hubungi Kami</h3>
+                    <p><i class="fas fa-envelope"></i> info@namatoko.com</p>
+                    <p><i class="fas fa-phone"></i> +62 123 4567 890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; <span id="current-year-testimonials"></span> NamaToko. Seluruh Hak Cipta Dilindungi.
+            </div>
+        </div>
+    </footer>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Keranjang Belanja Anda</h2>
+                <span class="close-cart-modal-btn">&times;</span>
+            </div>
+            <div class="modal-body" id="cart-summary-container-testimonials">
+                <p class="empty-cart-message">Keranjang Anda masih kosong.</p>
+            </div>
+            <div class="modal-footer" id="cart-modal-footer-actions-testimonials">
+            </div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification">Pesan Notifikasi</div>
+
+    <script src="js/testimonials-data.js"></script> <script src="js/testimonials.js"></script>     <script src="js/app.js"></script> <script>
+        // Skrip kecil untuk tahun di footer & animasi dasar
+        document.getElementById('current-year-testimonials').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

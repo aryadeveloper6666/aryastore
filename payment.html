@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran Digital - Erich Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="payment-page-body">
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">Erich<span class="logo-dot">Store</span></a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Kembali ke Toko</a></li>
+                    <li><a href="portfolio.html">Projects Owner Erich Store</a></li>
+                </ul>
+            </nav>
+             <div class="menu-toggle" style="visibility: hidden;"> <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="payment-main">
+        <div class="container">
+            <h1 class="section-title animate-on-scroll" data-animation="fadeInDown">Metode Pembayaran Digital</h1>
+
+            <div id="payment-total-display" class="animate-on-scroll" data-animation="fadeInUp" data-delay="0.1s" style="text-align: center; margin-bottom: 2rem; font-size: 1.3rem; color: var(--text-color);">
+                </div>
+
+            <div class="payment-methods">
+                <div class="payment-method animate-on-scroll" data-animation="fadeInUp" data-delay="0.2s">
+                    <img src="images/dana-logo.png" alt="DANA Logo" class="payment-logo"> <h2>DANA</h2>
+                    <p>Nomor: <span id="dana-number">087743690976</span> <button class="btn-copy" data-copytarget="dana-number"><i class="fas fa-copy"></i> Salin</button>
+                    </p>
+                </div>
+                <div class="payment-method animate-on-scroll" data-animation="fadeInUp" data-delay="0.4s">
+                    <img src="images/ovo-logo.png" alt="OVO Logo" class="payment-logo"> <h2>OVO</h2>
+                    <p>Nomor: <span id="ovo-number">belum tersedia</span> <button class="btn-copy" data-copytarget="ovo-number"><i class="fas fa-copy"></i> Salin</button>
+                    </p>
+                </div>
+                <div class="payment-method animate-on-scroll" data-animation="fadeInUp" data-delay="0.6s">
+                    <img src="images/gopay-logo.png" alt="GoPay Logo" class="payment-logo"> <h2>GoPay</h2>
+                    <p>Nomor: <span id="gopay-number">belum tersedia</span> <button class="btn-copy" data-copytarget="gopay-number"><i class="fas fa-copy"></i> Salin</button>
+                    </p>
+                </div>
+            </div>
+
+            <div class="qris-section animate-on-scroll" data-animation="zoomIn" data-delay="0.8s">
+                <h2>Pembayaran dengan QRIS</h2>
+                <button id="toggle-qris-btn" class="btn btn-secondary">Tampilkan QRIS</button>
+                <div id="qris-container" class="qris-image-container">
+                    <img src="https://files.catbox.moe/2ye44t.jpg" alt="Kode QRIS Pembayaran" id="https://files.catbox.moe/2ye44t.jpg"> <a href="images/qris.png" download="QRIS_Pembayaran_NamaToko.png" class="btn btn-download-qris">
+                        <i class="fas fa-download"></i> Unduh QRIS
+                    </a>
+                </div>
+            </div>
+
+            <div class="payment-tutorial animate-on-scroll" data-animation="fadeInUp" data-delay="1s">
+                <h2 class="section-title">Tutorial Pembayaran</h2>
+                <ol>
+                    <li>Pilih salah satu metode pembayaran di atas (DANA, OVO, GoPay, atau QRIS).</li>
+                    <li>Untuk DANA/OVO/GoPay: Salin nomor tujuan dan lakukan transfer sejumlah total belanja Anda.</li>
+                    <li>Untuk QRIS: Klik tombol "Tampilkan QRIS", lalu pindai kode QR menggunakan aplikasi e-wallet atau mobile banking Anda.</li>
+                    <li>Setelah pembayaran berhasil, harap lakukan konfirmasi pembayaran melalui WhatsApp ke nomor <a href="https://wa.me/6287743690976" target="_blank" rel="noopener noreferrer"><strong>+62 812 7401 6808 (Konfirmasi Pembayaran Di Sini)</strong></a> dengan menyertakan bukti transfer.</li>
+                    <li>Pesanan Anda akan segera kami proses setelah konfirmasi diterima.</li>
+                </ol>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                &copy; <span id="current-year-payment"></span> Erich Store. Seluruh Hak Cipta Dilindungi.
+            </div>
+        </div>
+    </footer>
+
+    <div id="notification" class="notification">Pesan Notifikasi</div>
+
+    <script src="js/payment.js"></script>
+    <script>
+        // Skrip kecil untuk tahun di footer & animasi dasar
+        document.getElementById('current-year-payment').textContent = new Date().getFullYear();
+        const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const animationType = entry.target.dataset.animation || 'fadeIn';
+                    const animationDelay = entry.target.dataset.delay || '0s';
+                    entry.target.style.animationDelay = animationDelay;
+                    entry.target.classList.add(animationType);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        elementsToAnimate.forEach(el => observer.observe(el));
+
+        // Skrip untuk menampilkan total dari localStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartTotal = localStorage.getItem('cartTotal');
+            const paymentTotalDisplay = document.getElementById('payment-total-display');
+            if (cartTotal && paymentTotalDisplay) {
+                paymentTotalDisplay.innerHTML = `<h3>Total yang Harus Dibayar: <strong>${new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(parseFloat(cartTotal))}</strong></h3>`;
+            }
+             localStorage.removeItem('cartTotal'); // Opsional: hapus agar tidak muncul lagi saat refresh tanpa dari keranjang
+        });
+    </script>
+</body>
+</html>

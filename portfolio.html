@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Erich Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="portfolio-page-body">
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">Erich<span class="logo-dot">Store</span></a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Toko Online</a></li>
+                     <li><a href="#portfolio-showcase" class="nav-link">Proyek</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimoni</a></li>
+                </ul>
+            </nav>
+             <div class="menu-toggle" style="visibility: hidden;"> <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="portfolio-main">
+        <section class="portfolio-hero">
+            <div class="portfolio-hero-overlay"></div>
+            <div class="container">
+                <h1 class="animate-on-scroll" data-animation="fadeInDown">Portofolio Profesional Kami</h1>
+                <p class="animate-on-scroll" data-animation="fadeInUp" data-delay="0.3s">Lihat proyek-proyek inovatif dan solusi kreatif yang telah kami hasilkan.</p>
+            </div>
+        </section>
+
+        <section id="portfolio-showcase" class="portfolio-showcase">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll" data-animation="fadeIn">Proyek Unggulan</h2>
+                <div class="portfolio-filters animate-on-scroll" data-animation="fadeIn" data-delay="0.2s">
+                    <button class="filter-btn active" data-filter="all">Semua</button>
+                    <button class="filter-btn" data-filter="web-design">Desain Web</button>
+                    <button class="filter-btn" data-filter="app-dev">Pengembangan Aplikasi</button>
+                    <button class="filter-btn" data-filter="hosting-solution">Solusi Hosting</button>
+                    <button class="filter-btn" data-filter="branding">Branding</button>
+                </div>
+
+                <div class="portfolio-grid" id="portfolio-grid-container">
+                    <div class="portfolio-item animate-on-scroll" data-animation="zoomIn" data-category="web-design">
+                        <img src="images/portfolio-item1.jpg" alt="Proyek Desain Web Futuristik">
+                        <div class="portfolio-item-overlay">
+                            <h3>Website E-commerce Canggih</h3>
+                            <p>Platform belanja online dengan teknologi terkini.</p>
+                            <a href="#" class="btn btn-secondary btn-sm">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials bg-gradient">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll" data-animation="fadeIn">Testimoni Store Kami!</h2>
+                <div class="testimonial-slider-container animate-on-scroll" data-animation="fadeInUp">
+                    <div class="testimonial-slider">
+                        <div class="testimonial active">
+                            <p>"Kerja sama yang luar biasa! Hasilnya melebihi ekspektasi. Sangat profesional dan inovatif."</p>
+                            <h4>- Klien A, CEO Tech Startup</h4>
+                        </div>
+                        <div class="testimonial">
+                            <p>"Desain yang diberikan sangat modern dan fungsional. Tim sangat responsif dan membantu."</p>
+                            <h4>- Klien B, Manajer Pemasaran</h4>
+                        </div>
+                        <div class="testimonial">
+                            <p>"Solusi hosting Pterodactyl mereka sangat stabil dan cepat. Dukungan teknisnya juga oke banget!"</p>
+                            <h4>- Klien C, Pemilik Server Game</h4>
+                        </div>
+                    </div>
+                    <button class="slider-btn prev-slide"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn next-slide"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+             <div class="footer-bottom">
+                &copy; <span id="current-year-portfolio"></span> Erich Store Portofolio. Seluruh Hak Cipta Dilindungi.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/portfolio.js"></script>
+    <script>
+        document.getElementById('current-year-portfolio').textContent = new Date().getFullYear();
+        // Inisialisasi animasi dasar untuk halaman ini
+        const elementsToAnimatePortfolio = document.querySelectorAll('.animate-on-scroll');
+        const observerPortfolio = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const animationType = entry.target.dataset.animation || 'fadeIn';
+                    const animationDelay = entry.target.dataset.delay || '0s';
+                    entry.target.style.animationDelay = animationDelay;
+                    entry.target.classList.add(animationType);
+                    observerPortfolio.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        elementsToAnimatePortfolio.forEach(el => observerPortfolio.observe(el));
+    </script>
+</body>
+</html>
